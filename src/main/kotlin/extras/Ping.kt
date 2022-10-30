@@ -10,7 +10,7 @@ fun main(){
         val reader1 = winPB.inputStream.bufferedReader().lineSequence().joinToString("\n")
         println(reader1)
     } else {
-        val linPB = ProcessBuilder().command("bash", "-c", "ping google.es").start()
+        val linPB = ProcessBuilder().command("bash", "-c", "ping -c 5 google.es").start()
         val reader2 = linPB.inputStream.bufferedReader().lineSequence().joinToString("\n")
         println(reader2)
     }
