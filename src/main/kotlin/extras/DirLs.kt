@@ -28,7 +28,7 @@ fun main(){
         println(outputWin)
     } else {
         val linPB = ProcessBuilder("bash", "-c", "ls .").start()
-        val filterLin = linPB.inputStream.bufferedReader().lineSequence().filter { it.contains("xml") }.joinToString("\n")
+        val filterLin = linPB.inputStream.bufferedReader().lineSequence().filter { it.contains("kts") }.joinToString("\n")
         //println(filterLin)
         linPB.waitFor()
 
@@ -38,7 +38,7 @@ fun main(){
         val linPB2 = ProcessBuilder("bash", "-c", "cat $fileLin").start()
         linPB2.waitFor()
 
-        val findGrepLin = ProcessBuilder("bash", "-c", "grep jar").start()
+        val findGrepLin = ProcessBuilder("bash", "-c", "grep jvm").start()
 
         val readOutputLin = linPB2.inputStream.bufferedReader().readText()
         findGrepLin.outputStream.bufferedWriter().use { it.write(readOutputLin) }
